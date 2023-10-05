@@ -41,13 +41,12 @@ def run(second: int, mc_id: int) -> str:
             response_json = dict(response_get.json())
             if response_json['done']:
                 break
-        print(response_json)
         if 'chunks' in response_json['response'].keys():
             return response_json['response']['chunks'][0]['alternatives'][0]['text']
         else:
             return "Не понимаю, повторите"
 
-    return ""
+    return "Нет ответа от сервера"
 
 if __name__ == '__main__':
     print("Выберите идентификатор микрофона")
